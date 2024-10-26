@@ -1,17 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // Importa o arquivo de estilos
+import './App.css';
 
 function App() {
   const [userData, setUserData] = useState({ username: '', flag: '' });
-  const [attempts, setAttempts] = useState(0); // Estado para contagem de tentativas
-  const [successMessage, setSuccessMessage] = useState(''); // Mensagem de sucesso
-  const [isResolved, setIsResolved] = useState(false); // Estado para verificar se o desafio foi resolvido
-
-  // Define a flag diretamente no código
-  const CORRECT_FLAG = 'CYBERRATS{Minha_Primeira_Flag}';
+  const [attempts, setAttempts] = useState(0);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [isResolved, setIsResolved] = useState(false);
 
   useEffect(() => {
-    // Verifica se o desafio já foi resolvido
     const resolved = localStorage.getItem('isResolved');
     if (resolved === 'true') {
       setIsResolved(true);
@@ -24,30 +20,42 @@ function App() {
     setUserData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setAttempts((prevAttempts) => prevAttempts + 1); // Incrementa a contagem de tentativas
+    setAttempts((prevAttempts) => prevAttempts + 1);
 
-    // Verifica se a flag está correta
-    if (userData.flag === CORRECT_FLAG) {
-      setSuccessMessage(`Parabéns, ${userData.username}! Você acertou a flag!`);
-      setIsResolved(true); // Define que o desafio foi resolvido
-      localStorage.setItem('isResolved', 'true'); // Salva no localStorage
-    } else {
-      setSuccessMessage('Flag incorreta! Tente novamente.');
+    try {
+      // Chama a API serverless na Vercel para verificar a flag
+      const response = await fetch('/api/checkFlag', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ flag: userData.flag }),
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        setSuccessMessage(`Parabéns, ${userData.username}! Você acertou a flag!`);
+        setIsResolved(true);
+        localStorage.setItem('isResolved', 'true');
+      } else {
+        setSuccessMessage('Flag incorreta! Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro ao verificar a flag:', error);
+      setSuccessMessage('Erro ao verificar a flag. Tente novamente mais tarde.');
     }
 
-    setUserData({ username: '', flag: '' }); // Limpa os campos do formulário
+    setUserData({ username: '', flag: '' });
   };
 
   return (
-    <div className="container"> {/* Aplica a classe de estilo */}
+    <div className="container">
       <h2>Desafio 1 - OSINT</h2>
 
-      {isResolved ? ( // Verifica se o desafio foi resolvido
+      {isResolved ? (
         <p>{successMessage}</p>
       ) : (
-        <form onSubmit={handleSubmit} className="form"> {/* Aplica a classe de estilo */}
+        <form onSubmit={handleSubmit} className="form">
           <label>
             Usuário:
             <input
@@ -74,7 +82,7 @@ function App() {
         </form>
       )}
 
-      <p>Tentativas: {attempts}</p> {/* Exibe a contagem de tentativas */}
+      <p>Tentativas: {attempts}</p>
     </div>
   );
 }
