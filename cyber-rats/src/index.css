@@ -1,0 +1,108 @@
+/* App.css */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h2 {
+  font-size: 2.5em; /* Tamanho ajustado para h2 */
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+  width: 100%; /* Ajusta a largura do contêiner */
+}
+
+.form {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: #1a1a1a; /* Fundo do formulário */
+  color: rgba(255, 255, 255, 0.87); /* Cor do texto do formulário */
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87); /* Cor do texto do botão */
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  .form {
+    background-color: #f9f9f9; /* Cor de fundo para o formulário no modo claro */
+  }
+  button {
+    background-color: #f9f9f9; /* Cor de fundo do botão no modo claro */
+    color: #213547; /* Cor do texto do botão no modo claro */
+  }
+}
+
+
+label {
+  display: block; /* Faz os rótulos ocuparem a largura total */
+  margin-bottom: 5px; /* Espaço abaixo dos rótulos */
+}
+
+input {
+  margin-bottom: 5px; /* Espaço abaixo dos campos de entrada */
+  padding: 0.6em; /* Adiciona padding para melhorar a aparência */
+  border: 1px solid #ccc; /* Estilo da borda dos campos de entrada */
+  border-radius: 4px; /* Borda arredondada */
+  width: 100%; /* Largura total do campo de entrada */
+  box-sizing: border-box; /* Garante que o padding e a borda sejam incluídos na largura total */
+}
