@@ -7,6 +7,9 @@ function App() {
   const [successMessage, setSuccessMessage] = useState(''); // Mensagem de sucesso
   const [isResolved, setIsResolved] = useState(false); // Estado para verificar se o desafio foi resolvido
 
+  // Define a flag diretamente no código
+  const CORRECT_FLAG = 'CYBERRATS{Minha_Primeira_Flag}';
+
   useEffect(() => {
     // Verifica se o desafio já foi resolvido
     const resolved = localStorage.getItem('isResolved');
@@ -25,8 +28,8 @@ function App() {
     e.preventDefault();
     setAttempts((prevAttempts) => prevAttempts + 1); // Incrementa a contagem de tentativas
 
-    // Usa a variável de ambiente para verificar a flag
-    if (userData.flag === process.env.REACT_APP_FLAG) {
+    // Verifica se a flag está correta
+    if (userData.flag === CORRECT_FLAG) {
       setSuccessMessage(`Parabéns, ${userData.username}! Você acertou a flag!`);
       setIsResolved(true); // Define que o desafio foi resolvido
       localStorage.setItem('isResolved', 'true'); // Salva no localStorage
@@ -39,7 +42,7 @@ function App() {
 
   return (
     <div className="container"> {/* Aplica a classe de estilo */}
-      <h2>Desafio OSINT</h2>
+      <h2>Desafio 1 - OSINT</h2>
 
       {isResolved ? ( // Verifica se o desafio foi resolvido
         <p>{successMessage}</p>
