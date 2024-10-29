@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.button-custom {
+  background-color: #e05252; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  border: none; /* Remover borda */
+  padding: 10px 20px; /* Espaçamento interno */
+  text-align: center; /* Centralizar texto */
+  text-decoration: none; /* Sem sublinhado */
+  display: inline-block; /* Permitir margens */
+  font-size: 16px; /* Tamanho da fonte */
+  margin: 4px 2px; /* Margens */
+  cursor: pointer; /* Cursor de mão ao passar o mouse */
+  border-radius: 5px; /* Bordas arredondadas */
+  transition: background-color 0.3s; /* Transição suave */
+}
+
+.button-custom:hover {
+  background-color: #e05252; /* Cor de fundo ao passar o mouse */
+}
