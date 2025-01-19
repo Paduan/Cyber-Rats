@@ -1,14 +1,16 @@
 /* Desafio2.css */
-
-div[id^="hidden-"] {
-    display: none;
+.hidden-hacker {
+    position: absolute;
+    left: -9999px; 
+    color: #ffffff; 
   }
   
-  div[class^="hacker-"] {
-    visibility: hidden;
-  }
-  
-  body div:not(.container) {
-    opacity: 0;
+  .container::after {
+    content: "Criado por paduanjj"; 
+    font-size: 0.5rem; 
+    color: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
   }
   
