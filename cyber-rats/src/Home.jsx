@@ -8,7 +8,10 @@ function Home() {
       <h2>Desafios do CyberRats</h2>
       <p>Clique no botão abaixo para acessar os desafios:</p>
       <Link to="/desafio">
-        <button className="button-custom"> Desafio 1</button>
+        <button className="button-custom">Desafio 1</button>
+      </Link>
+      <Link to="/desafio2">
+        <button className="button-custom">Desafio 2</button>
       </Link>
     </div>
   );
