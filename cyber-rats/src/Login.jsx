@@ -1,6 +1,6 @@
 // src/Login.jsx
 import React, { useState } from "react";
-import { validCredentials } from "./api/auth"; // Importa as credenciais
+import { validCredentials } from "/api/auth"; // Importa as credenciais
 
 function Login() {
   const [username, setUsername] = useState("");
