@@ -1,16 +1,13 @@
 /* Desafio2.css */
-.hidden-hacker {
-    position: absolute;
-    left: -9999px; 
-    color: #ffffff; 
-  }
-  
-  .container::after {
-    content: "created by @paduanjj"; 
-    font-size: 0.5rem; 
-    color: transparent;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  
+
+
+[data-hidden-text] {
+  display: block; 
+  height: 0;
+  overflow: hidden; 
+  visibility: hidden;
+}
+
+[data-hidden-text]::before {
+  content: ''; 
+}
