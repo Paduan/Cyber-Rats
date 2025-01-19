@@ -1,0 +1,14 @@
+/* Desafio2.css */
+
+div[id^="hidden-"] {
+    display: none;
+  }
+  
+  div[class^="hacker-"] {
+    visibility: hidden;
+  }
+  
+  body div:not(.container) {
+    opacity: 0;
+  }
+  
