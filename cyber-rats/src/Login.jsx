@@ -1,31 +1,35 @@
 // src/Login.jsx
-import React, { useState } from 'react';
-import { correctLogin } from './api/auth'; // Importa o login correto
+import React, { useState } from "react";
+import { validCredentials } from "./api/auth"; // Importa as credenciais
 
 function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [captchaA, setCaptchaA] = useState(Math.floor(Math.random() * 10));
-  const [captchaB, setCaptchaB] = useState(Math.floor(Math.random() * 10));
-  const [captchaInput, setCaptchaInput] = useState('');
-  const [error, setError] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [captchaA, setCaptchaA] = useState(Math.floor(Math.random() * 10)); // Número 1
+  const [captchaB, setCaptchaB] = useState(Math.floor(Math.random() * 10)); // Número 2
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Verifica o CAPTCHA
-    const captchaResult = parseInt(captchaInput, 10);
-    if (captchaResult !== captchaA + captchaB) {
-      setError('CAPTCHA incorreto. Tente novamente.');
+    // Valida o Captcha
+    if (parseInt(captchaInput) !== captchaA + captchaB) {
+      setErrorMessage("Captcha incorreto. Tente novamente.");
       return;
     }
 
-    // Verifica o login e senha
-    if (username === correctLogin.username && password === correctLogin.password) {
-      alert('Login bem-sucedido! Bem-vindo à página secreta.');
+    // Valida as credenciais
+    if (username === validCredentials.username && password === validCredentials.password) {
+      alert("Login bem-sucedido! Bem-vindo!");
     } else {
-      setError('Usuário ou senha incorretos.');
+      setErrorMessage("Usuário ou senha incorretos.");
     }
+
+    // Reseta o captcha para dificultar tentativas
+    setCaptchaA(Math.floor(Math.random() * 10));
+    setCaptchaB(Math.floor(Math.random() * 10));
+    setCaptchaInput("");
   };
 
   return (
@@ -54,18 +58,14 @@ function Login() {
           />
         </div>
         <div>
-          <label htmlFor="captcha">
-            Quanto é {captchaA} + {captchaB}?
-          </label>
+          <label>Captcha: Qual é a soma de {captchaA} + {captchaB}?</label>
           <input
-            type="text"
-            id="captcha"
-            name="captcha"
+            type="number"
             value={captchaInput}
             onChange={(e) => setCaptchaInput(e.target.value)}
           />
         </div>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         <button type="submit">Entrar</button>
       </form>
     </div>
