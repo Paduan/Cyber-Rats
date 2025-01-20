@@ -62,10 +62,10 @@ function Desafio2() {
 
         <p><strong>Objetivos:</strong></p>
         <ul>
-          <li>1 - Encontrar o nick do hacker</li>
-          <li>2 - Encontrar o código de encriptação</li>
-          <li>3 - Decodificar o código e restaurar a informação encriptada.</li>
-          <li>4 - Retornar a flag ao final do desafio.</li>
+          <li>Encontrar o nick do hacker</li>
+          <li>Encontrar o código de encriptação</li>
+          <li>Decodificar o código e restaurar a informação encriptada.</li>
+          <li>Retornar a flag ao final do desafio.</li>
         </ul>
 
         <p><strong>Boa sorte!</strong></p>

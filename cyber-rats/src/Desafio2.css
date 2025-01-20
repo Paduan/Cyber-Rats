@@ -94,3 +94,12 @@
   font-size: 1.2rem;
   text-align: center;
 }
+
+ul {
+  padding-left: 20px;
+  list-style-position: inside; 
+}
+
+ul li {
+  margin-bottom: 8px; 
+}
