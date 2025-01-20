@@ -58,7 +58,7 @@ function Login() {
           />
         </div>
         <div>
-          <label>Captcha: Qual é a soma de {captchaA} + {captchaB}?</label>
+          <label>Qual é a soma de {captchaA} + {captchaB}?</label>
           <input
             type="number"
             value={captchaInput}
