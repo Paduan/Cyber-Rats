@@ -79,6 +79,7 @@ const Desafio2 = () => {
           {message && <p className={message.includes('Parabéns') ? "success-message" : "error-message"}>{message}</p>}
         </form>
       )}
+      <div data-hidden-text="@H4cker-from-sky-99"></div>
     </div>
   );
 };
