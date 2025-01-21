@@ -77,7 +77,9 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 100%;
+  width: auto; /* Change width to auto */
+  display: block; /* Center the button */
+  margin: 0 auto; /* Center the button */
 }
 
 .form button:hover {

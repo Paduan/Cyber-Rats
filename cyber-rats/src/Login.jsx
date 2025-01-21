@@ -1,12 +1,12 @@
 // src/Login.jsx
 import React, { useState } from "react";
-import { validCredentials } from "/api/auth"; // Importa as credenciais
+import { validCredentials } from "/api/auth"; 
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [captchaA, setCaptchaA] = useState(Math.floor(Math.random() * 10)); // Número 1
-  const [captchaB, setCaptchaB] = useState(Math.floor(Math.random() * 10)); // Número 2
+  const [captchaA, setCaptchaA] = useState(Math.floor(Math.random() * 10));
+  const [captchaB, setCaptchaB] = useState(Math.floor(Math.random() * 10));
   const [captchaInput, setCaptchaInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -34,7 +34,7 @@ function Login() {
 
   return (
     <div className="container">
-      <h2>Login</h2>
+      <h3>login admin</h3>
       <form onSubmit={handleSubmit} className="login-form">
         <div className="form-group">
           <label htmlFor="username">Usuário:</label>
