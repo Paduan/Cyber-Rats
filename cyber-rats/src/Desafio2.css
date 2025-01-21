@@ -67,7 +67,7 @@
   margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  width: 100%;
+  width: 50%;
 }
 
 .form button {
@@ -77,7 +77,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 50px; /* Set a fixed width */
+  width: 150px; /* Set a fixed width */
   display: block; /* Center the button */
   margin: 0 auto; /* Center the button */
 }
