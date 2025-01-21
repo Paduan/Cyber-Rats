@@ -21,7 +21,7 @@ function Login() {
 
     // Valida as credenciais
     if (username === validCredentials.username && password === validCredentials.password) {
-      alert("Login bem-sucedido! Bem-vindo!");
+      alert("CYBERRATS{Resgate_Encriptado_99}!");
     } else {
       setErrorMessage("Usuário ou senha incorretos.");
     }
@@ -34,10 +34,9 @@ function Login() {
 
   return (
     <div className="container">
-      <h2>Página de Login</h2>
-      <p>Parabéns por encontrar esta página secreta!</p>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="form-group">
           <label htmlFor="username">Usuário:</label>
           <input
             type="text"
@@ -47,7 +46,7 @@ function Login() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label htmlFor="password">Senha:</label>
           <input
             type="password"
@@ -57,7 +56,7 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div>
+        <div className="form-group">
           <label>Qual é a soma de {captchaA} + {captchaB}?</label>
           <input
             type="number"
@@ -65,8 +64,8 @@ function Login() {
             onChange={(e) => setCaptchaInput(e.target.value)}
           />
         </div>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        <button type="submit">Entrar</button>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <button type="submit" className="submit-button">Entrar</button>
       </form>
     </div>
   );
