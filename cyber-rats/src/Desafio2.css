@@ -77,7 +77,7 @@
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: auto; /* Change width to auto */
+  width: 150px; /* Set a fixed width */
   display: block; /* Center the button */
   margin: 0 auto; /* Center the button */
 }
