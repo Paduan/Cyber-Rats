@@ -4,14 +4,14 @@ import './Desafio2.css';
 const Desafio2 = () => {
   const [userData, setUserData] = useState({ flag: '' });
   const [attempts, setAttempts] = useState(0);
-  const [successMessage, setSuccessMessage] = useState('');
+  const [message, setMessage] = useState('');
   const [isResolved, setIsResolved] = useState(false);
 
   useEffect(() => {
     const resolved = localStorage.getItem('isResolved');
     if (resolved === 'true') {
       setIsResolved(true);
-      setSuccessMessage('Você já resolveu o desafio anteriormente!');
+      setMessage('Você já resolveu o desafio anteriormente!');
     }
   }, []);
 
@@ -34,19 +34,20 @@ const Desafio2 = () => {
       const result = await response.json();
       if (result.success) {
         setIsResolved(true);
-        setSuccessMessage('Parabéns! Você resolveu o desafio.');
+        setMessage('Parabéns! Você resolveu o desafio.');
         localStorage.setItem('isResolved', 'true');
       } else {
-        setSuccessMessage('Flag incorreta. Tente novamente.');
+        setMessage('Flag incorreta. Tente novamente.');
       }
     } catch (error) {
       console.error('Erro ao verificar a flag:', error);
-      setSuccessMessage('Ocorreu um erro. Tente novamente mais tarde.');
+      setMessage('Ocorreu um erro. Tente novamente mais tarde.');
     }
   }, [userData.flag]);
 
   return (
     <div>
+      <h1>Desafio de Decodificação</h1> {/* Add this line */}
       <p>
         Um hacker invadiu o sistema de uma empresa e encriptou suas informações, dificultando o resgate delas. 
         Seu objetivo é desvendar o código deixado e restaurar as informações importantes.
@@ -60,7 +61,7 @@ const Desafio2 = () => {
       <p><strong>Boa sorte!</strong></p>
 
       {isResolved ? (
-        <p>{successMessage}</p>
+        <p className="success-message">{message}</p>
       ) : (
         <form onSubmit={handleSubmit} className="form">
           <label>
@@ -75,6 +76,7 @@ const Desafio2 = () => {
           </label>
           <br />
           <button type="submit">Enviar</button>
+          {message && <p className={message.includes('Parabéns') ? "success-message" : "error-message"}>{message}</p>}
         </form>
       )}
     </div>
