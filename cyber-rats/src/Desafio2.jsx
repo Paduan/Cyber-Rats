@@ -47,7 +47,6 @@ const Desafio2 = () => {
 
   return (
     <div>
-      <h1>Desafio de Decodificação</h1> {/* Add this line */}
       <p>
         Um hacker invadiu o sistema de uma empresa e encriptou suas informações, dificultando o resgate delas. 
         Seu objetivo é desvendar o código deixado e restaurar as informações importantes.
@@ -78,7 +77,6 @@ const Desafio2 = () => {
           <button type="submit">Enviar</button>
         </form>
       )}
-    <div data-hidden-text="made by @H4cker-from-sky-99"></div>
     </div>
   );
 };
